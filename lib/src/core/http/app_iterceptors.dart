@@ -9,8 +9,7 @@ class AppInterceptors extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-
-      //remove the auxiliary header
+    //remove the auxiliary header
 
     options.headers.addAll({"X-VTEX-API-AppKey": Env.xVtexApiAppKey, "X-VTEX-API-AppToken": Env.xVtexApiAppToken});
 
