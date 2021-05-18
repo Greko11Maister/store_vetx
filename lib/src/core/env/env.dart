@@ -9,7 +9,7 @@ class Env {
 
   Env(this.m);
 
-  static final String _apiProduction = "https://imaginamos.myvtex.com/api/";
+  static final String _apiProduction = "https://imaginamos.myvtex.com/api";
   static final String _apiSandbox = "https://imaginamos.myvtex.com/api";
   static final String _apiLocal = "https://imaginamos.myvtex.com/api";
   static final String xVtexApiAppKey = "vtexappkey-imaginamos-LSWTYU";

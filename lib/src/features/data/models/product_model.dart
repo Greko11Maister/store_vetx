@@ -1,0 +1,75 @@
+import 'package:store_vtex/src/features/domain/entities/product_entity.dart';
+
+class ProductModel extends  ProductEntity {
+  ProductModel({
+     int id,
+     String name,
+     int departmentId,
+     int categoryId,
+     int brandId,
+     String linkId,
+     String refId,
+     bool isVisible,
+     String description,
+     String descriptionShort,
+     DateTime releaseDate,
+     String keyWords,
+     String title,
+     bool isActive,
+     String taxCode,
+     String metaTagDescription,
+     dynamic supplerId,
+     bool showWithoutStock,
+     dynamic adWordsRemarketingCode,
+     dynamic lomadeeCampaignCode,
+     dynamic score,
+}) : super(
+    id: id,
+    name: name,
+    departamentId: departmentId,
+    categoryId: categoryId,
+    brandId: brandId,
+    linkId: linkId,
+    refId: refId,
+    isVisible: isVisible,
+    description: description,
+    descriptionShort: descriptionShort,
+    releaseDate: releaseDate,
+    keyWords: keyWords,
+    title: title,
+    isActive: isActive,
+    taxCode: taxCode,
+    metaTagDescription: metaTagDescription,
+    supplerId: supplerId,
+    showWithoutStock: showWithoutStock,
+    adWordsRemarketingCode: adWordsRemarketingCode,
+    lomadeeCampaignCode: lomadeeCampaignCode,
+    score: score
+  );
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json["Id"],
+      name: json["Name"],
+      departmentId: json["DepartmentId"],
+      categoryId: json["CategoryId"],
+      brandId: json["BrandId"],
+      linkId: json["LinkId"],
+      refId: json["RefId"],
+      isVisible: json["IsVisible"],
+      description: json["Description"],
+      descriptionShort: json["DescriptionShort"],
+      releaseDate: DateTime.parse(json["ReleaseDate"]),
+      keyWords: json["KeyWords"],
+      title: json["Title"],
+      isActive: json["IsActive"],
+      taxCode: json["TaxCode"],
+      metaTagDescription: json["MetaTagDescription"],
+      supplerId: json["SupplierId"],
+      showWithoutStock: json["ShowWithoutStock"],
+      adWordsRemarketingCode: json["AdWordsRemarketingCode"],
+      lomadeeCampaignCode: json["LomadeeCampaignCode"],
+      score: json["Score"]
+    );
+}
+}
