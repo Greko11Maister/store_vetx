@@ -11,7 +11,7 @@ class CategoryRemoteDataSourceImpl extends ApiProvider implements CategoryRemote
   @override
   Future<List<CategoryModel>> level(String level) async {
     try {
-      final res = await dio.get("");
+      final res = await dio.get("/catalog_system/pub/category/tree/$level");
       return (res.data as List).map((json) => CategoryModel.fromJson(json)).toList();
     } on DioError catch (error) {
       throw ServerFailure(error: error).extract;

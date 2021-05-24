@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:store_vtex/src/core/error/failures.dart';
 import 'package:store_vtex/src/features/data/datasource/product_remote_data_source.dart';
 import 'package:store_vtex/src/features/domain/entities/product_entity.dart';
+import 'package:store_vtex/src/features/domain/entities/product_variations.dart';
 import 'package:store_vtex/src/features/domain/entities/products_and_sku_entity.dart';
 import 'package:store_vtex/src/features/domain/repositories/product_repository.dart';
 import 'package:meta/meta.dart';
@@ -10,9 +11,9 @@ final ProductRemoteDataSource remoteDataSource;
 
   ProductRepositoryImpl({@required this.remoteDataSource});
   @override
-  Future<Either<Failure, ProductsAndSkuEntity>> productAndSkuIds() async {
+  Future<Either<Failure, ProductsAndSkuEntity>> productAndSkuIds(Map<String, dynamic> queryParameters) async {
     try {
-      final res = await remoteDataSource.productAndSkuIds();
+      final res = await remoteDataSource.productAndSkuIds(queryParameters);
       return Right(res);
     }catch (error){
       return Left(error);
@@ -23,6 +24,16 @@ final ProductRemoteDataSource remoteDataSource;
   Future<Either<Failure, ProductEntity>> productId(int id) async {
     try {
       final res = await remoteDataSource.productId(id);
+      return Right(res);
+    }catch (error){
+      return Left(error);
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProductVariationsEntity>> productIdVariations(int id) async {
+    try {
+      final res = await remoteDataSource.variations(id);
       return Right(res);
     }catch (error){
       return Left(error);
