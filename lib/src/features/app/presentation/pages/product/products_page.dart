@@ -9,6 +9,7 @@ import 'package:store_vtex/src/features/app/presentation/pages/shoping_car/car_s
 
 import '../../../../../../injection_container.dart';
 
+// ignore: must_be_immutable
 class ProductsPage extends StatelessWidget {
   static const routeName = '/products/page';
   ProductController _controller;
