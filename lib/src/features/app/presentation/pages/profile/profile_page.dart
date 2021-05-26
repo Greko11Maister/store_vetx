@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+
+import 'create_account_page.dart';
 
 class  ProfilePage extends StatelessWidget {
  static const routeName = '/profile/page';
@@ -70,6 +73,13 @@ class  ProfilePage extends StatelessWidget {
 
 
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+
+        onPressed: (){
+          Get.to(CreateAccountPage());
+        },
       ),
     );
   }

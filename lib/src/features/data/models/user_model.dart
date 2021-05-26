@@ -2,13 +2,20 @@ import 'package:store_vtex/src/features/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   UserModel({
+     String id,
+     double balance,
+     String status,
     String document,
     String documentType,
     String email,
-    String creditLimit,
+    double creditLimit,
     String description,
-    String tolerance,
+    double tolerance,
+    DateTime createdAt
   }) : super(
+    id: id,
+            balance: balance,
+            status: status,
             document: document,
             documentType: documentType,
             email: email,
@@ -18,11 +25,16 @@ class UserModel extends UserEntity {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
+      id: json["id"],
+        balance: json["balance"],
+        status: json["status"],
         document: json["document"],
         documentType: json["documentType"],
         email: json["email"],
         creditLimit: json["creditLimit"],
-        description: json["description"],
-        tolerance: json["tolerance"]);
+        description: json["description"], 
+        tolerance: json["tolerance"],
+        createdAt: DateTime.parse(json["createdAt"])
+    );
   }
 }

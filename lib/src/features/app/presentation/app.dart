@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store_vtex/src/features/app/presentation/controllers/account_controller.dart';
 import 'package:store_vtex/src/features/app/presentation/pages/home/home_page.dart';
 import 'package:store_vtex/src/features/app/presentation/pages/home/home_page2.dart';
 import 'package:store_vtex/src/features/app/presentation/pages/product/products_page.dart';
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(AccountController(getUserAccountIdUseCase: sl()));
     Get.put(ShoppingCartController(addShoppingCartUseCase: sl()));
     return GetMaterialApp(
       initialRoute: HomePage2.routeName,

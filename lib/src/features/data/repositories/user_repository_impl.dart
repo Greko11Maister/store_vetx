@@ -25,6 +25,7 @@ class UserRepositoryImpl implements UserRepository {
       final res = await remoteDataSource.openAccount(data);
       return  Right(res);
     }catch (error){
+      print(error);
       return Left(error);
     }
   }
