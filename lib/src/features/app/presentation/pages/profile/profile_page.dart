@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:store_vtex/src/features/app/presentation/controllers/account_controller.dart';
 
 import 'create_account_page.dart';
+import 'package:intl/intl.dart';
 
 class ProfilePage extends StatelessWidget {
   static const routeName = '/profile/page';
@@ -40,31 +41,39 @@ class ProfilePage extends StatelessWidget {
                   ),
                   color: Colors.white,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Nombre: ${_.user.email}',
-                        style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
-                      ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left:8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Flexible(
+                              child: Text(
+                                'Nombre: ${_.user.email}',
+                                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Documento: ${_.user.document}',
+                            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Id:  ${_.user.id}',
+                            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
+                          ),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Documento: ${_.user.document}',
-                        style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Id:  ${_.user.id}',
-                        style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
-                      ),
-                    )
-                  ],
+                  ),
                 )
               ],
             ),
@@ -80,14 +89,15 @@ class ProfilePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 18, top: 8.0),
             child: Text(
-              'Telefono: 1234567',
+              'Telefono:',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(left: 18, top: 8.0),
             child: Text(
-              'Fecha de ingreso: 25/12/2020',
+              'Fecha de ingreso: ${_.user.createdAt}',
+             // 'Fecha de ingreso: ${DateFormat("Y/MMM/dd").format(_.user.createdAt)}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
             ),
           ),
